@@ -6,10 +6,9 @@
 	<link rel="stylesheet" href="{% static 'posts/css/posts_styles.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
 <body>
+	<!-- Current version of this does NOT use AJAX, setup simply to show how the page reloads with each new note added/submit -->
 	<div id="big_wrapper">
 		<h1>My Posts</h1>
-		<!-- here put a for loop -->
-
 		{% for post in posts %}
 			<div id="post_space">
 				<p>{{post.post}}</p>
