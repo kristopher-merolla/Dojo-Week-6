@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Posts</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'posts/css/posts_styles.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+	<div id="big_wrapper">
+		<h1>My Posts</h1>
+		<!-- here put a for loop -->
+
+		{% for post in posts %}
+			<div id="post_space">
+				<p>{{post.post}}</p>
+			</div>
+		{% endfor %}
+		<br><br>
+		<form action="/post" method="POST">
+		{% csrf_token %}
+			<textarea rows="4" cols="50" name="post" placeholder="Add a note in here!"></textarea><br>
+			<input type="submit" value="Add Note" id="submit_button">
+		</form>
+		{{message|safe}}
+	</div>
+</body>
+</html>
